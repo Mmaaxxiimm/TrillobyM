@@ -1,0 +1,142 @@
+.container {
+    //Define the width, 1200px if there is enough space, but if there is not enough space then we simply occupy 100% of the viewport width
+    max-width: 120rem;
+    margin: 8rem auto;
+    background-color: var(--color-grey-light-2);
+    box-shadow: var(--shadow-dark);
+    
+    //Height is just for testing purposes
+    min-height: 50rem;
+    
+    @media only screen and (max-width: $bp-largest) {
+        margin: 0;
+        //The lines below are to make sure the margin is gone, even when the OVERALL FONT-SIZE is reduced.
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
+.header {
+    font-size: 1.4rem;
+    height: 7rem;
+    background-color: #fff;
+    border-bottom: var(--line);
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    @media only screen and (max-width: $bp-smallest) {
+        //Now we're allowing the element to wrap to a new line if they don't have enough space
+        //But we want the search bar to wrap to a new line even before there is not enough space
+        //We solve that by just making the search bar wider so it needs more space earlier and thus will wrap to a new line earlier
+        flex-wrap: wrap;
+        align-content: space-around;
+        height: 11rem;
+    }
+}
+
+
+.content {
+    display: flex;
+    
+    @media only screen and (max-width: $bp-medium) {
+        flex-direction: column;
+    }
+    
+}
+
+.sidebar {
+    background-color: var(--color-grey-dark-1);
+    
+    flex: 0 0 18%;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hotel-view {
+    background-color: #fff;
+    //We set a color just during development for testing purposes
+    //background-color: orangered;
+    //We set a height while we're constructing the page, but once the hotel view is filled in with content, we don't need the height anymore because the height will be determined by those elements.
+    //We want the content to define the height of the box
+    //height: 80rem;
+    
+    flex: 1;
+}
+
+
+.detail {
+    font-size: 1.4rem;
+    display: flex;
+    //Padding is all around the description element and the user-reviews element
+    padding: 4.5rem;
+    background-color: var(--color-grey-light-1);
+    border-bottom: var(--line);
+    
+    @media only screen and (max-width: $bp-medium) {
+        padding: 3rem;
+    }
+    
+    @media only screen and (max-width: $bp-small) {
+        flex-direction: column;
+    }
+}
+
+.description {
+    font-size: 1.4rem;
+    background-color: #fff;
+    box-shadow: var(--shadow-light);
+    padding: 3rem;
+    //grow, shrink, basis
+    //Usually when setting a percentage in the last one, you put a 0 in the two first numbers.
+    flex: 0 0 60%;
+    margin-right: 4.5rem;
+    
+    @media only screen and (max-width: $bp-medium) {
+            padding: 2rem;
+            margin-right: 3rem; 
+    }
+    
+    @media only screen and (max-width: $bp-small) {
+        margin-right: 0;
+        margin-bottom: 3rem;
+    }
+}
+
+.user-reviews {
+    //This will make it occupy the remaining space, so 40% here
+    flex: 1;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
